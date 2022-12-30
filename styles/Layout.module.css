@@ -1,0 +1,11 @@
+.layoutContainer {
+  height: 100vh;
+}
+.mainSidebar {
+  overflow: auto;
+  height: 100vh;
+  padding: 10px;
+}
+.contentContainer {
+  padding: 10px;
+}

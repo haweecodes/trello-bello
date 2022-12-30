@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`workspace layout should render navigation section 1`] = `
+<section
+  class="ant-layout ant-layout-has-sider layoutContainer css-dev-only-do-not-override-acm2ia"
+>
+  <aside
+    class="ant-layout-sider ant-layout-sider-light mainSidebar"
+    style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+  >
+    <div
+      class="ant-layout-sider-children"
+    >
+      <ul
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light sidebarMenuItem css-dev-only-do-not-override-acm2ia"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <a
+          eventkey="tmp_key-0"
+          href="/workspace-1"
+        >
+          Workspace 1
+        </a>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display: none;"
+      >
+        <a
+          eventkey="tmp_key-0"
+          href="/workspace-1"
+        >
+          Workspace 1
+        </a>
+      </div>
+    </div>
+  </aside>
+  <section
+    class="ant-layout css-dev-only-do-not-override-acm2ia"
+  >
+    <main
+      class="ant-layout-content contentContainer"
+    >
+      <p>
+        Show me
+      </p>
+    </main>
+  </section>
+</section>
+`;
