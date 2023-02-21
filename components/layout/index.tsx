@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Dropdown, Layout, Menu, Typography, Drawer, Tooltip, Image } from 'antd';
+import { Row, Col, Layout, Menu, Typography, Drawer, Tooltip, Image } from 'antd';
 import styles from '../../styles/Layout.module.css'
 import Link from "next/link";
 
@@ -24,9 +24,22 @@ const WorkSpaceLayout = ({ children }: LayoutType) =>
       </Menu>
 
     </Sider>
-    <Layout>
-      <Content className={styles.contentContainer}>{children}</Content>
-    </Layout>
+    {/* <Layout> */}
+      <Row gutter={5}>
+        <Col span={6} className={styles.taskColumn}>
+          <Content className={styles.contentContainer}>{children}</Content>
+        </Col>
+        <Col span={6} className={styles.taskColumn}>
+          <Content className={styles.contentContainer}>{children}</Content>
+        </Col>
+        <Col span={6} className={styles.taskColumn}>
+          <Content className={styles.contentContainer}>{children}</Content>
+        </Col>
+        <Col span={6} className={styles.taskColumn}>
+          <Content className={styles.contentContainer}>{children}</Content>
+        </Col>
+      </Row>
+    {/* </Layout> */}
   </Layout>
   ;
 

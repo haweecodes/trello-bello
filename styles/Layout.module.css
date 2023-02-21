@@ -9,3 +9,7 @@
 .contentContainer {
   padding: 10px;
 }
+
+.taskColumn {
+  border: 1px solid;
+}
