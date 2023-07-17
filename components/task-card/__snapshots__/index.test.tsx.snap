@@ -6,11 +6,12 @@ exports[`task card should render task card 1`] = `
 >
   <textarea
     class="cardTitle"
-  >
-    Title...
-  </textarea>
+    name="taskTitle"
+    placeholder="Title..."
+  />
   <div
     class="cardContent"
+    data-testid="card-content"
   >
     Card content Card content Card content Card content Card content Card content Card content
   </div>

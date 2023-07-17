@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Layout, Menu, Typography, Drawer, Tooltip, Image } from 'antd';
 import styles from '../../styles/Layout.module.css'
 import Link from "next/link";
+import TaskContainer from "../task-container";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -20,26 +21,12 @@ const WorkSpaceLayout = ({ children }: LayoutType) =>
         key="/workspace-1"
         className={styles.sidebarMenuItem}
       >
-        <Link href="/workspace-1">Workspace 1</Link>
+        <Menu.Item key="/workspace-1"><Link href="/workspace-1">Workspace 1</Link></Menu.Item>
       </Menu>
 
     </Sider>
-    {/* <Layout> */}
-      <Row gutter={5}>
-        <Col span={6} className={styles.taskColumn}>
-          <Content className={styles.contentContainer}>{children}</Content>
-        </Col>
-        <Col span={6} className={styles.taskColumn}>
-          <Content className={styles.contentContainer}>{children}</Content>
-        </Col>
-        <Col span={6} className={styles.taskColumn}>
-          <Content className={styles.contentContainer}>{children}</Content>
-        </Col>
-        <Col span={6} className={styles.taskColumn}>
-          <Content className={styles.contentContainer}>{children}</Content>
-        </Col>
-      </Row>
-    {/* </Layout> */}
+   
+    {children}
   </Layout>
   ;
 

@@ -17,36 +17,31 @@ exports[`workspace layout should render navigation section 1`] = `
         role="menu"
         tabindex="0"
       >
-        <a
-          eventkey="tmp_key-0"
-          href="/workspace-1"
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-/workspace-1"
+          role="menuitem"
+          tabindex="-1"
         >
-          Workspace 1
-        </a>
+          <span
+            class="ant-menu-title-content"
+          >
+            <a
+              href="/workspace-1"
+            >
+              Workspace 1
+            </a>
+          </span>
+        </li>
       </ul>
       <div
         aria-hidden="true"
         style="display: none;"
-      >
-        <a
-          eventkey="tmp_key-0"
-          href="/workspace-1"
-        >
-          Workspace 1
-        </a>
-      </div>
+      />
     </div>
   </aside>
-  <section
-    class="ant-layout css-dev-only-do-not-override-acm2ia"
-  >
-    <main
-      class="ant-layout-content contentContainer"
-    >
-      <p>
-        Show me
-      </p>
-    </main>
-  </section>
+  <p>
+    Show me
+  </p>
 </section>
 `;
