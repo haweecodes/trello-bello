@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Button, Layout, Menu } from "antd";
-import styles from "../../styles/Layout.module.css";
-import type { MenuProps } from "antd";
-import TaskContainer from "../task-container";
+import { Button, Layout, Menu, message } from "antd";
 import Link from "next/link";
+import { MinusCircleOutlined } from "@ant-design/icons";
+import styles from "../../styles/Layout.module.css";
 
 const { Sider, Content } = Layout;
 
@@ -30,6 +29,15 @@ const WorkSpaceLayout = ({ children }: LayoutType) => {
     });
     setItems([...updatedItems]);
   };
+  const handleRemove = (index: number) => {
+    if (items.length < 2) {
+      message.warning("Must have one workspace");
+      return;
+    }
+    const updatedMenuItems = [...items];
+    updatedMenuItems.splice(index, 1);
+    setItems([...updatedMenuItems]);
+  };
 
   return (
     <Layout className={styles.layoutContainer}>
@@ -41,10 +49,16 @@ const WorkSpaceLayout = ({ children }: LayoutType) => {
         trigger={null}
       >
         <Menu className={styles.sidebarMenuItem}>
-          {items.map((item: Record<string, string>) => {
+          {items.map((item: Record<string, string>, index: number) => {
             return (
               <Menu.Item key={item.key}>
                 <Link href={item.key}>{item.label}</Link>
+                <Button
+                  data-testid="remove-button"
+                  name="Remove"
+                  onClick={() => handleRemove(index)}
+                  icon={<MinusCircleOutlined />}
+                ></Button>
               </Menu.Item>
             );
           })}
