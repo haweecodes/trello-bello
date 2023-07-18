@@ -1,38 +1,36 @@
-import React from "react";
-import {
-  Layout,
-  Menu,
-} from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Layout, Menu } from "antd";
 import styles from "../../styles/Layout.module.css";
 import type { MenuProps } from "antd";
 import TaskContainer from "../task-container";
 import Link from "next/link";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 type LayoutType = {
   children: JSX.Element;
 };
 
 const WorkSpaceLayout = ({ children }: LayoutType) => {
-  const items: MenuProps["items"] = [
+  const [items, setItems] = useState<Record<string, string>[]>([
     {
-      label: (
-        <Link href="/workspace/1">
-          Workspace - 1
-        </Link>
-      ),
+      label: "Workspace - 1",
       key: "/workspace/1",
     },
     {
-      label: (
-        <Link href="/workspace/2">
-          Workspace - 2
-        </Link>
-      ),
+      label: "Workspace - 2",
       key: "/workspace/2",
     },
-  ];
+  ]);
+  const handleWorksapceAddition = () => {
+    const updatedItems = [...items];
+    updatedItems.push({
+      label: `Workspace - ${items.length + 1}`,
+      key: `/workspace/${items.length + 1}`,
+    });
+    setItems([...updatedItems]);
+  };
+
   return (
     <Layout className={styles.layoutContainer}>
       <Sider
@@ -42,11 +40,18 @@ const WorkSpaceLayout = ({ children }: LayoutType) => {
         collapsedWidth={0}
         trigger={null}
       >
-        <Menu
-          key="/workspace-1"
-          className={styles.sidebarMenuItem}
-          items={items}
-        ></Menu>
+        <Menu className={styles.sidebarMenuItem}>
+          {items.map((item: Record<string, string>) => {
+            return (
+              <Menu.Item key={item.key}>
+                <Link href={item.key}>{item.label}</Link>
+              </Menu.Item>
+            );
+          })}
+          <Menu.Item key="add-workspace">
+            <Button onClick={handleWorksapceAddition}>Add Workspace</Button>
+          </Menu.Item>
+        </Menu>
       </Sider>
 
       <Layout>
