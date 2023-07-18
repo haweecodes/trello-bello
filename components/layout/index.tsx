@@ -1,17 +1,12 @@
 import React from "react";
 import {
-  Row,
-  Col,
   Layout,
   Menu,
-  Typography,
-  Drawer,
-  Tooltip,
-  Image,
 } from "antd";
 import styles from "../../styles/Layout.module.css";
 import type { MenuProps } from "antd";
 import TaskContainer from "../task-container";
+import Link from "next/link";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -22,12 +17,20 @@ type LayoutType = {
 const WorkSpaceLayout = ({ children }: LayoutType) => {
   const items: MenuProps["items"] = [
     {
-      label: "Workspace 1",
-      key: "/workspace-1",
+      label: (
+        <Link href="/workspace/1">
+          Workspace - 1
+        </Link>
+      ),
+      key: "/workspace/1",
     },
     {
-      label: "Workspace 2",
-      key: "/workspace-2",
+      label: (
+        <Link href="/workspace/2">
+          Workspace - 2
+        </Link>
+      ),
+      key: "/workspace/2",
     },
   ];
   return (

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import TaskContainer from "../task-container";
-import { Button, Space } from "antd";
+import { Button, Card, Space, message } from "antd";
+import { MinusCircleOutlined } from "@ant-design/icons";
 
 const TaskContainerGenerator = () => {
   const [taskContainerList, setTaskContainerList] = useState([
@@ -18,12 +19,25 @@ const TaskContainerGenerator = () => {
     });
     setTaskContainerList([ ...tempData ]);
   }
+  const handleRemove = (
+    index: number
+  ) => {
+    if(taskContainerList.length < 2) {
+      message.warning('Must have one task container');
+      return;
+    }
+    const updatedContent = [...taskContainerList];
+    updatedContent.splice(index, 1);
+    setTaskContainerList([...updatedContent ]);
+  };
 
   return (
     <Space align="baseline">
       {taskContainerList.map((_, index) => (
         <div key={index}>
-          <TaskContainer />
+          <Card extra={<Button data-testid='remove-button' name="Remove" onClick={() => handleRemove(index)} icon={<MinusCircleOutlined />}></Button>}>
+            <TaskContainer />
+          </Card>
         </div>
       ))}
 
